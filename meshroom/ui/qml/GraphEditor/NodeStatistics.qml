@@ -34,6 +34,7 @@ FocusScope {
 
         Loader {
             id: componentLoader
+            active: visible
             clip: true
             Layout.fillWidth: true
             Layout.fillHeight: true
