@@ -68,50 +68,50 @@ It is robust to motion-blur, depth-of-field, occlusion. Be careful to have enoug
             advanced=True,
             enabled=lambda node: (node.describerPreset.value == 'custom'),
         ),
-        desc.ChoiceParam(
-            name='describerQuality',
-            label='Describer Quality',
-            description='Control the ImageDescriber quality (low, medium, normal, high, ultra).',
-            value='normal',
-            values=['low', 'medium', 'normal', 'high', 'ultra'],
-            exclusive=True,
-            uid=[0],
-        ),
-        desc.ChoiceParam(
-            name='contrastFiltering',
-            label='Contrast Filtering',
-            description="Contrast filtering method to ignore features with too low contrast that can be considered as noise:\n"
-                       "* Static: Fixed threshold.\n"
-                       "* AdaptiveToMedianVariance: Based on image content analysis.\n"
-                       "* NoFiltering: Disable contrast filtering.\n"
-                       "* GridSortOctaves: Grid Sort but per octaves (and only per scale at the end).\n"
-                       "* GridSort: Grid sort per octaves and at the end (scale * peakValue).\n"
-                       "* GridSortScaleSteps: Grid sort per octaves and at the end (scale and then peakValue).\n"
-                       "* NonExtremaFiltering: Filter non-extrema peakValues.\n",
-            value='GridSort',
-            values=['Static', 'AdaptiveToMedianVariance', 'NoFiltering', 'GridSortOctaves', 'GridSort', 'GridSortScaleSteps', 'GridSortOctaveSteps', 'NonExtremaFiltering'],
-            exclusive=True,
-            advanced=True,
-            uid=[0],
-        ),
-        desc.FloatParam(
-            name='relativePeakThreshold',
-            label='Relative Peak Threshold',
-            description='Peak Threshold relative to median of gradiants.',
-            value=0.01,
-            range=(0.01, 1.0, 0.001),
-            advanced=True,
-            uid=[0],
-            enabled=lambda node: (node.contrastFiltering.value == 'AdaptiveToMedianVariance'),
-        ),
-        desc.BoolParam(
-            name='gridFiltering',
-            label='Grid Filtering',
-            description='Enable grid filtering. Highly recommended to ensure usable number of features.',
-            value=True,
-            advanced=True,
-            uid=[0],
-        ),
+        # desc.ChoiceParam(
+        #     name='describerQuality',
+        #     label='Describer Quality',
+        #     description='Control the ImageDescriber quality (low, medium, normal, high, ultra).',
+        #     value='normal',
+        #     values=['low', 'medium', 'normal', 'high', 'ultra'],
+        #     exclusive=True,
+        #     uid=[0],
+        # ),
+        # desc.ChoiceParam(
+        #     name='contrastFiltering',
+        #     label='Contrast Filtering',
+        #     description="Contrast filtering method to ignore features with too low contrast that can be considered as noise:\n"
+        #                "* Static: Fixed threshold.\n"
+        #                "* AdaptiveToMedianVariance: Based on image content analysis.\n"
+        #                "* NoFiltering: Disable contrast filtering.\n"
+        #                "* GridSortOctaves: Grid Sort but per octaves (and only per scale at the end).\n"
+        #                "* GridSort: Grid sort per octaves and at the end (scale * peakValue).\n"
+        #                "* GridSortScaleSteps: Grid sort per octaves and at the end (scale and then peakValue).\n"
+        #                "* NonExtremaFiltering: Filter non-extrema peakValues.\n",
+        #     value='GridSort',
+        #     values=['Static', 'AdaptiveToMedianVariance', 'NoFiltering', 'GridSortOctaves', 'GridSort', 'GridSortScaleSteps', 'GridSortOctaveSteps', 'NonExtremaFiltering'],
+        #     exclusive=True,
+        #     advanced=True,
+        #     uid=[0],
+        # ),
+        # desc.FloatParam(
+        #     name='relativePeakThreshold',
+        #     label='Relative Peak Threshold',
+        #     description='Peak Threshold relative to median of gradiants.',
+        #     value=0.01,
+        #     range=(0.01, 1.0, 0.001),
+        #     advanced=True,
+        #     uid=[0],
+        #     enabled=lambda node: (node.contrastFiltering.value == 'AdaptiveToMedianVariance'),
+        # ),
+        # desc.BoolParam(
+        #     name='gridFiltering',
+        #     label='Grid Filtering',
+        #     description='Enable grid filtering. Highly recommended to ensure usable number of features.',
+        #     value=True,
+        #     advanced=True,
+        #     uid=[0],
+        # ),
         desc.BoolParam(
             name='forceCpuExtraction',
             label='Force CPU Extraction',
